@@ -40,6 +40,14 @@ export function isPluginPending(plugin: Plugin): plugin is PluginPending {
   return (plugin as any).version !== undefined;
 }
 
+export function isEditionPlugin(plugin: Plugin): boolean {
+  // TODO Remove to use the flag supposed to be returned by ws when SONAR-9976 is done
+  return (
+    (plugin.organizationName || '').toLowerCase() === 'sonarsource' &&
+    (plugin.license || '').toLowerCase() === 'sonarsource'
+  );
+}
+
 export function filterPlugins(plugins: Plugin[], search: string): Plugin[] {
   const s = search.toLowerCase();
   return plugins.filter(plugin => {

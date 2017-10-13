@@ -19,9 +19,10 @@
  */
 import * as React from 'react';
 import Checkbox from '../../components/controls/Checkbox';
+import CheckIcon from '../../components/icons-components/CheckIcon';
 import PluginUpdateButton from './PluginUpdateButton';
 import { Plugin, installPlugin, updatePlugin, uninstallPlugin } from '../../api/plugins';
-import { isPluginAvailable, isPluginInstalled } from './utils';
+import { isEditionPlugin, isPluginAvailable, isPluginInstalled } from './utils';
 import { translate } from '../../helpers/l10n';
 
 interface Props {
@@ -71,6 +72,44 @@ export default class PluginActions extends React.PureComponent<Props, State> {
   render() {
     const { plugin } = this.props;
     const { loading } = this.state;
+
+    if (isEditionPlugin(plugin)) {
+      return (
+        <div className="js-actions">
+          {isPluginAvailable(plugin) && (
+            <div>
+              <p className="little-spacer-bottom">
+                {translate('marketplace.available_under_commercial_license')}
+              </p>
+              <a href={plugin.homepageUrl} target="_blank">
+                {translate('marketplace.learn_more')}
+              </a>
+            </div>
+          )}
+          {isPluginInstalled(plugin) && (
+            <p>
+              <CheckIcon className="little-spacer-right" />
+              {translate('marketplace.installed')}
+            </p>
+          )}
+          {isPluginInstalled(plugin) &&
+          plugin.updates &&
+          plugin.updates.length > 0 && (
+            <div className="spacer-top button-group">
+              {plugin.updates.map((update, idx) => (
+                <PluginUpdateButton
+                  key={idx}
+                  onClick={this.handleUpdate}
+                  update={update}
+                  disabled={loading}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div className="js-actions">
         {isPluginAvailable(plugin) &&
