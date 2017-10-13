@@ -482,32 +482,21 @@
         <artifactId>sonar-scm-git-plugin</artifactId>
         <version>${sonarGit.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.eclipse.jgit</groupId>
-            <artifactId>org.eclipse.jgit</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.scm.svn</groupId>
         <artifactId>sonar-scm-svn-plugin</artifactId>
         <version>${sonarSvn.version}</version>
-        <type>sonar-plugin</type>
         <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
+          <!-- the SVN plugin uses svnkit 1.8.15 which
+          does not exist in Maven central. It breaks
+          the build if it's not explicitly excluded. -->
           <exclusion>
             <groupId>org.tmatesoft.svnkit</groupId>
             <artifactId>svnkit</artifactId>
           </exclusion>
         </exclusions>
+        <type>sonar-plugin</type>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.sonarqube</groupId>
@@ -534,164 +523,42 @@
         <artifactId>sonar-java-plugin</artifactId>
         <version>${sonarJava.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>classworlds</groupId>
-            <artifactId>classworlds</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>java-surefire</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>java-jacoco</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>java-frontend</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>java-checks</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.javascript</groupId>
         <artifactId>sonar-javascript-plugin</artifactId>
         <version>${sonarJavaScript.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.sonarsource.javascript</groupId>
-            <artifactId>javascript-frontend</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.javascript</groupId>
-            <artifactId>javascript-checks</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.dotnet</groupId>
         <artifactId>sonar-csharp-plugin</artifactId>
         <version>${sonarCSharp.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <exclusion>
-            <groupId>org.sonarsource.dotnet</groupId>
-            <artifactId>sonar-dotnet-tests-library</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.dotnet</groupId>
-            <artifactId>sonar-dotnet-shared-library</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.sslr-squid-bridge</groupId>
-            <artifactId>sslr-squid-bridge</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.php</groupId>
         <artifactId>sonar-php-plugin</artifactId>
         <version>${sonarPhp.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.sonarsource.php</groupId>
-            <artifactId>php-frontend</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.php</groupId>
-            <artifactId>php-checks</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.python</groupId>
         <artifactId>sonar-python-plugin</artifactId>
         <version>${sonarPython.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.sonarsource.python</groupId>
-            <artifactId>python-squid</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.python</groupId>
-            <artifactId>python-checks</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.codehaus.woodstox</groupId>
-            <artifactId>woodstox-core-lgpl</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.codehaus.staxmate</groupId>
-            <artifactId>staxmate</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.flex</groupId>
         <artifactId>sonar-flex-plugin</artifactId>
         <version>${sonarFlex.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.sonarsource.flex</groupId>
-            <artifactId>flex-squid</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>org.sonarsource.flex</groupId>
-            <artifactId>flex-checks</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>org.sonarsource.xml</groupId>
         <artifactId>sonar-xml-plugin</artifactId>
         <version>${sonarXml.version}</version>
         <type>sonar-plugin</type>
-        <exclusions>
-          <!--
-          no need for transitive dependencies as only the JAR file
-          is needed for the zip bundle
-          -->
-          <exclusion>
-            <groupId>org.sonarsource.xml</groupId>
-            <artifactId>xml-squid</artifactId>
-          </exclusion>
-        </exclusions>
       </dependency>
       <dependency>
         <groupId>com.hazelcast</groupId>

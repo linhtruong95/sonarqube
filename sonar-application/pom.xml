@@ -97,55 +97,55 @@
       <groupId>org.sonarsource.java</groupId>
       <artifactId>sonar-java-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.javascript</groupId>
       <artifactId>sonar-javascript-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.dotnet</groupId>
       <artifactId>sonar-csharp-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.scm.git</groupId>
       <artifactId>sonar-scm-git-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.scm.svn</groupId>
       <artifactId>sonar-scm-svn-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.php</groupId>
       <artifactId>sonar-php-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.python</groupId>
       <artifactId>sonar-python-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.flex</groupId>
       <artifactId>sonar-flex-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.sonarsource.xml</groupId>
       <artifactId>sonar-xml-plugin</artifactId>
       <type>sonar-plugin</type>
-      <scope>provided</scope>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <!-- do not upgrade because of licensing change -->
